@@ -1,3 +1,5 @@
+import Filter from "@/components/Filter";
+import SearchInput from "@/components/SearchInput";
 import SingleCountry from "@/components/SingleCountry";
 import { getAllCountries } from "@/utils/actions";
 
@@ -6,8 +8,9 @@ export default async function Home() {
 
   return (
     <section className="w-11/12 pt-[4rem]">
-      <div>
-        <input type="text" placeholder="Search for a country" />
+      <div className="flex justify-between">
+        <SearchInput />
+        <Filter />
       </div>
 
       <div className="flex justify-between flex-wrap gap-12">
