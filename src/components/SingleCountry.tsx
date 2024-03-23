@@ -24,7 +24,7 @@ const SingleCountry: React.FC<SingleCountryProps> = ({
   return (
     <Link
       href=""
-      className="w-[300px] h-full drop-shadow-lg bg-white b rounded-md overflow-hidden"
+      className="w-[300px] h-full drop-shadow-lg dark:bg-black bg-white b rounded-md overflow-hidden"
     >
       <div>
         <div className="w-full h-[200px]  relative drop-shadow-sm">
@@ -32,6 +32,8 @@ const SingleCountry: React.FC<SingleCountryProps> = ({
             loader={imageLoader}
             src={flagImage}
             fill={true}
+            sizes="100"
+            priority={true}
             // width={290}
             // height={500}
             alt={countryName}
