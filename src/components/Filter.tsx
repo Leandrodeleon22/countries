@@ -4,11 +4,13 @@ import { IoIosArrowDown } from "react-icons/io";
 import DropdownDownMenuName from "@/utils/links";
 
 import { useState } from "react";
+import Link from "next/link";
 
 const Filter = () => {
   //   const [bookmarksChecked, setBookmarksChecked] = useState(true);
   //   const [urlsChecked, setUrlsChecked] = useState(false);
-  const [person, setPerson] = useState("pedro");
+
+  const [region, setRegion] = useState("");
 
   return (
     <DropdownMenu.Root>
@@ -19,8 +21,8 @@ const Filter = () => {
       <DropdownMenu.Portal>
         <DropdownMenu.Content>
           <DropdownMenu.RadioGroup
-            value={person}
-            onValueChange={setPerson}
+            value={region}
+            onValueChange={setRegion}
             className="bg-white rounded-md mt-1 dark:bg-black"
           >
             {/* <DropdownMenu.RadioItem value="Africa">
@@ -35,16 +37,21 @@ const Filter = () => {
 
             {DropdownDownMenuName.map((item) => {
               return (
-                <DropdownMenu.RadioItem
+                <Link
                   key={item.name}
-                  className="flex h-[3rem] items-center w-[13rem]  cursor-pointer "
-                  value={item.name}
+                  href={item.href}
+                  className="hover:outline-offset-1"
                 >
-                  <DropdownMenu.ItemIndicator className="absolute left-[7px]">
-                    {item.indicator}
-                  </DropdownMenu.ItemIndicator>
-                  <span className="ml-7"> {item.name}</span>
-                </DropdownMenu.RadioItem>
+                  <DropdownMenu.RadioItem
+                    className="flex h-[3rem] items-center w-[13rem] hover:outline outline-2 cursor-pointer s"
+                    value={item.name}
+                  >
+                    {/* <DropdownMenu.ItemIndicator className="absolute left-[7px]">
+                      {item.indicator}
+                    </DropdownMenu.ItemIndicator> */}
+                    <span className="ml-7"> {item.name}</span>
+                  </DropdownMenu.RadioItem>
+                </Link>
               );
             })}
           </DropdownMenu.RadioGroup>

@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 const inter = Inter({ subsets: ["latin"] });
-import { ThemeProvider } from "./provider/ThemeProvider";
+import { ThemeProvider } from "../provider/ThemeProvider";
 
 export const metadata: Metadata = {
   title: "Country App",
@@ -20,9 +20,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
+          // defaultTheme="system"
+          // enableSystem
+          // disableTransitionOnChange
         >
           <Header />
           <main className="flex justify-center dark:bg-slate-900  bg-slate-100">
