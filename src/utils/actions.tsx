@@ -30,9 +30,9 @@ export const getAllCountries = async (
   }
 };
 
-export const getByRegion = async (region: string) => {
-  const url: string = `https://restcountries.com/v3.1/region/${region.toLocaleLowerCase()}`;
+// export const getByRegion = async (region: string) => {
+//   const url: string = `https://restcountries.com/v3.1/region/${region.toLocaleLowerCase()}`;
 
-  const response = await axios.get(url);
-  return response.data;
-};
+//   const response = await axios.get(url);
+//   return response.data;
+// };

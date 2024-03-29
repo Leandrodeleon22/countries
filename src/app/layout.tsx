@@ -23,6 +23,7 @@ export default function RootLayout({
           // defaultTheme="system"
           // enableSystem
           // disableTransitionOnChange
+          themes={["light", "dark"]}
         >
           <Header />
           <main className="flex justify-center dark:bg-slate-800  bg-slate-100">

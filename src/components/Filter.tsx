@@ -56,7 +56,7 @@ const Filter = () => {
                   onClick={() => handleSubmit(item.name)}
                 >
                   <DropdownMenu.RadioItem
-                    className="flex h-[3rem] items-center w-[13rem] hover:outline outline-2 cursor-pointer s"
+                    className="flex h-[3rem] items-center w-[13rem] hover:outline dark:hover:outline-slate-50 outline-2 cursor-pointer s"
                     value={item.name}
                   >
                     {/* <DropdownMenu.ItemIndicator className="absolute left-[7px]">

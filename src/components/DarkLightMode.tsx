@@ -1,18 +1,23 @@
 "use client";
 import { useTheme } from "next-themes";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { CiDark, CiLight } from "react-icons/ci";
 export default function DarkLightMode() {
   const { setTheme } = useTheme();
-  const [light, setLight] = useState(true);
+
+  const [test, setTest] = useState(false);
+  const [light, setLight] = useState(test);
 
   const handleMode = () => {
     setLight((prev) => !prev);
     const isDark = light ? "dark" : "light";
     setTheme(isDark);
-    console.log("fire");
   };
+
+  useEffect(() => {
+    setTest(localStorage.getItem("theme") === "dark");
+  }, []);
 
   return (
     <div onClick={handleMode} className="flex items-center cursor-pointer ">
