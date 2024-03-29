@@ -23,8 +23,8 @@ const SingleCountry: React.FC<SingleCountryProps> = ({
   };
   return (
     <Link
-      href={`/${region.toLowerCase()}/2`}
-      className="w-[300px] h-full drop-shadow-lg dark:bg-black bg-white b rounded-md overflow-hidden"
+      href={`/2`}
+      className="w-[300px]  h-full drop-shadow-lg dark:bg-slate-700 bg-white b rounded-md overflow-hidden"
     >
       <div>
         <div className="w-full h-[200px]  relative drop-shadow-sm">

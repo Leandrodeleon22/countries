@@ -1,29 +1,29 @@
 import Countries from "@/components/Countries";
 import Filter from "@/components/Filter";
 import SearchInput from "@/components/SearchInput";
-import SingleCountry from "@/components/SingleCountry";
 
-import Link from "next/link";
 import { Suspense } from "react";
 export default async function Home({
   searchParams,
 }: {
   searchParams?: {
     query?: string;
+    region: string;
   };
 }) {
   // const countries = await getAllCountries();
-  // console.log(searchParams);
+  console.log(searchParams);
 
   const query = searchParams?.query || "";
+  const region = searchParams?.region || "";
   return (
     <section className="w-11/12 pt-[4rem]">
-      <div className="flex justify-between">
+      <div className="flex justify-between md:flex-col md:w-full ">
         <SearchInput />
         <Filter />
       </div>
       <Suspense key={query} fallback={<h1>Loading</h1>}>
-        <Countries query={query} />
+        <Countries query={query} region={region} />
       </Suspense>
     </section>
   );

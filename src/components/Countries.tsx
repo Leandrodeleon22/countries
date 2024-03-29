@@ -1,11 +1,17 @@
 import React from "react";
 import { getAllCountries } from "@/utils/actions";
 import SingleCountry from "./SingleCountry";
-const Countries = async ({ query }: { query: string }) => {
-  const countries = await getAllCountries(query);
+const Countries = async ({
+  query,
+  region,
+}: {
+  query: string;
+  region: string;
+}) => {
+  const countries = await getAllCountries(query, region);
 
   return (
-    <div className="flex justify-between flex-wrap gap-12">
+    <div className="flex justify-between sm:justify-center flex-wrap gap-12">
       {countries.map((country: any) => {
         const { name, population, region, flags } = country;
         // const capitalName = capital[0] ? capital[0] : "No Capital";

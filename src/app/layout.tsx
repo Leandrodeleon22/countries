@@ -25,7 +25,7 @@ export default function RootLayout({
           // disableTransitionOnChange
         >
           <Header />
-          <main className="flex justify-center dark:bg-slate-900  bg-slate-100">
+          <main className="flex justify-center dark:bg-slate-800  bg-slate-100">
             {children}
           </main>
         </ThemeProvider>
