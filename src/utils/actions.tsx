@@ -36,3 +36,13 @@ export const getAllCountries = async (
 //   const response = await axios.get(url);
 //   return response.data;
 // };
+
+export const getByName = async (name: string) => {
+  console.log(name);
+  const url: string = `https://restcountries.com/v3.1/name/${name}`;
+
+  const response = await axios.get(url);
+  return response.data;
+};
+
+// https://restcountries.com/v3.1/name/canada
