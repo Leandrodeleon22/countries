@@ -1,6 +1,7 @@
 import React from "react";
 import { getAllCountries } from "@/utils/actions";
 import SingleCountry from "./SingleCountry";
+import { formatPopulation } from "@/utils/formatPopulation";
 const Countries = async ({
   query,
   region,
@@ -30,7 +31,7 @@ const Countries = async ({
           <SingleCountry
             key={name.common}
             region={region}
-            population={population}
+            population={formatPopulation(population)}
             countryName={name.common}
             capital={capital}
             flagImage={flagSrc}

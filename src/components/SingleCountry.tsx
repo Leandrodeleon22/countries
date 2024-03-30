@@ -6,7 +6,7 @@ import React from "react";
 
 interface SingleCountryProps {
   countryName: string;
-  population: number;
+  population: string;
   region: string;
   capital: string;
   flagImage: string;
