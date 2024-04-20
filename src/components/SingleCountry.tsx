@@ -24,7 +24,7 @@ const SingleCountry: React.FC<SingleCountryProps> = ({
   return (
     <Link
       href={`/${countryName.toLowerCase()}`}
-      className="w-[300px]  h-full drop-shadow-lg dark:bg-slate-700 bg-white b rounded-md overflow-hidden"
+      className="w-[300px] hover:scale-105 transition ease-in-out  h-full drop-shadow-lg dark:bg-slate-700 bg-white b rounded-md overflow-hidden"
     >
       <div>
         <div className="w-full h-[200px]  relative drop-shadow-sm">

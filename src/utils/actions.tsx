@@ -21,6 +21,8 @@ export const getAllCountries = async (
       return response.data;
     }
     const url: string = "https://restcountries.com/v3.1/all";
+    // const url: string =
+    //   "https://restcountries.com/v3.1/all?fields=name,capital,currencies,population,region,flags,subregion,tld,borders,languages";
 
     const response = await axios.get(url);
 

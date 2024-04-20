@@ -36,21 +36,21 @@ const Country: React.FC<CountryProps> = ({
   };
 
   const sectionOne = [
-    { name: "Native Name: ", value: nativeName },
-    { name: "Population: ", value: population },
-    { name: "Region: ", value: region },
-    { name: "Sub Region: ", value: subRegion },
-    { name: "Capital: ", value: capital },
+    { id: 1, name: "Native Name: ", value: nativeName },
+    { id: 2, name: "Population: ", value: population },
+    { id: 3, name: "Region: ", value: region },
+    { id: 4, name: "Sub Region: ", value: subRegion },
+    { id: 5, name: "Capital: ", value: capital },
   ];
 
   const sectionTwo = [
-    { name: "Top Level Domain: ", value: topLevelDomain },
-    { name: "Currencies: ", value: currencies },
-    { name: "Languages: ", value: languages },
+    { id: 6, name: "Top Level Domain: ", value: topLevelDomain },
+    { id: 7, name: "Currencies: ", value: currencies },
+    { id: 8, name: "Languages: ", value: languages },
   ];
 
   return (
-    <div className="flex justify-between  w-full">
+    <div className="flex justify-between  w-full ">
       <div className="w-[35rem] h-[20rem] relative mr-8">
         <Image
           loader={imageLoader}
@@ -68,11 +68,11 @@ const Country: React.FC<CountryProps> = ({
           <h1 className="text-[1.5rem] mb-[2rem] font-semibold">
             {nativeName}
           </h1>
-          <div className=" flex justify-between">
-            <div>
+          <div className="flex">
+            <div className="mr-44">
               {sectionOne.map((el: any) => {
                 return (
-                  <p key={el}>
+                  <p key={el.id}>
                     {" "}
                     <span className="font-medium">{el.name}</span>{" "}
                     <span className="text-slate-700 dark:text-slate-400">
@@ -109,7 +109,7 @@ const Country: React.FC<CountryProps> = ({
             <div>
               {sectionTwo.map((el: any) => {
                 return (
-                  <p key={el}>
+                  <p key={el.id}>
                     {" "}
                     <span className="font-medium">{el.name}</span>
                     <span className="text-slate-700 dark:text-slate-400">
@@ -133,17 +133,19 @@ const Country: React.FC<CountryProps> = ({
             </div>
           </div>
           <div className="mt-8">
-            <div>
-              <span>Border Countries: </span>
+            <div className="flex">
+              <span className="mr-4">Border Countries: </span>
+
               {borders.map((border) => {
                 return (
-                  <Link
-                    className="text-slate-30 bg-slate-50 dark:bg-slate-700 mr-2 px-2 py-1 rounded-sm shadow-md"
-                    href={`/${border}`}
-                    key={border}
-                  >
-                    {border}
-                  </Link>
+                  <div key={border} className="flex items-center">
+                    <Link
+                      className="text-slate-30 hover:scale-105 transition ease-in-out bg-slate-50 dark:bg-slate-700 mr-2 px-2 py-1 rounded-sm shadow-md"
+                      href={`/${border}`}
+                    >
+                      {border}
+                    </Link>
+                  </div>
                 );
               })}
             </div>

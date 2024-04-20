@@ -26,7 +26,7 @@ export default function RootLayout({
           themes={["light", "dark"]}
         >
           <Header />
-          <main className="flex justify-center dark:bg-slate-800  bg-slate-100">
+          <main className="flex justify-center dark:bg-slate-800 transition  bg-slate-100">
             {children}
           </main>
         </ThemeProvider>
