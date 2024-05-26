@@ -1,4 +1,4 @@
-import { getAllCountries, getByName } from "@/utils/actions";
+import { getAllCountries, getByName, getCountries } from "@/utils/actions";
 
 import Link from "next/link";
 import React from "react";
@@ -9,6 +9,7 @@ import { formatPopulation } from "@/utils/formatPopulation";
 const page = async ({ params }: { params: { name: string } }) => {
   const country = await getByName(params.name);
   const allCountries = await getAllCountries();
+  // const allCountries = await getCountries();
 
   const {
     flags,
@@ -22,7 +23,7 @@ const page = async ({ params }: { params: { name: string } }) => {
     languages,
     borders,
   } = country[0];
-  // console.log(allCountries);
+
   const nativeName = name.nativeName.eng?.official || name.common;
   const currency = Object.keys(currencies)[0];
   const language = Object.values(languages);

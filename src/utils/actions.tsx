@@ -1,6 +1,9 @@
 "use server";
 
 import axios from "axios";
+import data from "../data/data.json";
+import Countries from "../models/Countries";
+import { connectToDatabase } from "../models/mongoose";
 
 export const getAllCountries = async (
   search?: string,
@@ -48,3 +51,24 @@ export const getByName = async (name: string) => {
 };
 
 // https://restcountries.com/v3.1/name/canada
+export const getCountries = async () => {
+  try {
+    connectToDatabase();
+    const data = await Countries.find();
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getBorders = async () => {
+  try {
+    connectToDatabase();
+    const data = await Countries.find({ borders });
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
