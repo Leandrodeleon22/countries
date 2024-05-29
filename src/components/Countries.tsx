@@ -11,6 +11,9 @@ const Countries = async ({
 }) => {
   const countries = await getAllCountries(query, region);
 
+  console.log(countries);
+
+  // console.log(countries);
   return (
     <div className="flex justify-between sm:justify-center flex-wrap gap-12">
       {countries.map((country: any) => {

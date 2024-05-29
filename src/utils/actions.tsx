@@ -1,9 +1,6 @@
-"use server";
+// "use server";
 
 import axios from "axios";
-import data from "../data/data.json";
-import Countries from "../models/Countries";
-import { connectToDatabase } from "../models/mongoose";
 
 export const getAllCountries = async (
   search?: string,
@@ -14,13 +11,15 @@ export const getAllCountries = async (
       const url = `https://restcountries.com/v3.1/name/${search}`;
       const response = await axios.get(url);
 
-      return response.data;
+      // console.log(response);
+      return response;
     }
 
     if (filterByRegion) {
       const url: string = `https://restcountries.com/v3.1/region/${filterByRegion}`;
 
       const response = await axios.get(url);
+
       return response.data;
     }
     const url: string = "https://restcountries.com/v3.1/all";
@@ -31,6 +30,7 @@ export const getAllCountries = async (
 
     return response.data;
   } catch (error) {
+    console.log(error);
     return [];
   }
 };
@@ -51,24 +51,31 @@ export const getByName = async (name: string) => {
 };
 
 // https://restcountries.com/v3.1/name/canada
-export const getCountries = async () => {
-  try {
-    connectToDatabase();
-    const data = await Countries.find();
+// export const getCountries = async (
+//   search?: string,
+//   filterByRegion?: string
+// ) => {
+//   try {
+//     connectToDatabase();
 
-    return data;
-  } catch (error) {
-    console.log(error);
-  }
-};
+//     if (search) {
+//     }
 
-export const getBorders = async () => {
-  try {
-    connectToDatabase();
-    const data = await Countries.find({ borders });
+//     const data = await Countries.find();
 
-    return data;
-  } catch (error) {
-    console.log(error);
-  }
-};
+//     return data;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+// export const getBorders = async () => {
+//   try {
+//     connectToDatabase();
+//     const data = await Countries.find({ borders });
+
+//     return data;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
