@@ -2,6 +2,8 @@
 
 import axios from "axios";
 
+import { prisma } from "./prisma";
+
 export const getAllCountries = async (
   search?: string,
   filterByRegion?: string
@@ -79,3 +81,48 @@ export const getByName = async (name: string) => {
 //     console.log(error);
 //   }
 // };
+
+export const getCountries = async (
+  search?: string,
+  filterByRegion?: string
+) => {
+  try {
+    if (search) {
+      const response = await prisma.country.findMany({
+        where: {
+          name: {
+            contains: search,
+            mode: "insensitive", // Makes the search case-insensitive
+          },
+        },
+      });
+
+      // console.log(response);
+      return response;
+    }
+
+    if (filterByRegion) {
+      const response = await prisma.country.findMany({
+        where: {
+          region: {
+            contains: filterByRegion,
+            mode: "insensitive", // Makes the search case-insensitive
+          },
+        },
+      });
+
+      // console.log(response);
+      return response;
+    }
+
+    const allCountries = await prisma.country.findMany({
+      orderBy: {
+        name: "asc", // Sorts in ascending order by the 'name' field
+      },
+    });
+    return allCountries;
+  } catch (error) {
+    console.log("get countries", error);
+    return [];
+  }
+};

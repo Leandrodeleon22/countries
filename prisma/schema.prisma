@@ -18,30 +18,34 @@ datasource db {
 
 model Country {
   id             Int       @id @default(autoincrement())
-  name           String
+  name           String?
   topLevelDomain String[]
-  alpha2Code     String
-  alpha3Code     String
+  alpha2Code     String?
+  alpha3Code     String?
   callingCodes   String[]
-  capital        String
+  capital        String?
   altSpellings   String[]
-  subregion      String
-  region         String
-  population     Int
+  subregion      String?
+  region         String?
+  population     Int?
   latlng         Float[]
-  demonym        String
-  area           Float
+  demonym        String?
+  area           Float?
   gini            Float?
   timezones      String[]
   borders        String[]
-  nativeName     String
-  numericCode    String
-  flags          Json
+  nativeName     String?
+  numericCode    String?
+  flags          Json?
   currencies     Json[]
   languages      Json[]
-  translations   Json
-  flag           String
+  translations   Json?
+  flag           String?
   regionalBlocs  Json[]
   cioc           String?
-  independent    Boolean
+  independent    Boolean?
 }
+
+
+// npx prisma migrate dev
+// node .\prisma\seed.js

@@ -1,5 +1,5 @@
 import React from "react";
-import { getAllCountries } from "@/utils/actions";
+import { getAllCountries, getCountries } from "@/utils/actions";
 import SingleCountry from "./SingleCountry";
 import { formatPopulation } from "@/utils/formatPopulation";
 const Countries = async ({
@@ -9,15 +9,16 @@ const Countries = async ({
   query: string;
   region: string;
 }) => {
-  const countries = await getAllCountries(query, region);
+  // const countries = await getAllCountries(query, region);
 
-  console.log(countries);
-
+  const countries = await getCountries(query, region);
+  // console.log(countries);
+  console.log(region);
   // console.log(countries);
   return (
     <div className="flex justify-between sm:justify-center flex-wrap gap-12">
       {countries.map((country: any) => {
-        const { name, population, region, flags } = country;
+        const { id, name, population, region, flags } = country;
         // const capitalName = capital[0] ? capital[0] : "No Capital";
         const capital =
           country.capital && country.capital[0]
@@ -32,10 +33,10 @@ const Countries = async ({
 
         return (
           <SingleCountry
-            key={name.common}
+            key={id}
             region={region}
             population={formatPopulation(population)}
-            countryName={name.common}
+            countryName={name}
             capital={capital}
             flagImage={flagSrc}
           />
