@@ -3,6 +3,7 @@
 import axios from "axios";
 
 import { prisma } from "./prisma";
+import { Country } from "@prisma/client";
 
 export const getAllCountries = async (
   search?: string,
@@ -121,6 +122,38 @@ export const getCountries = async (
       },
     });
     return allCountries;
+  } catch (error) {
+    console.log("get countries", error);
+    return [];
+  }
+};
+
+export const getSingleCountry = async (id: string): Promise<any> => {
+  try {
+    const idNum = +id;
+
+    const country = await prisma.country.findUnique({
+      where: {
+        id: idNum, // Sorts in ascending order by the 'name' field
+      },
+    });
+    return country;
+  } catch (error) {
+    console.log("get countries", error);
+    return [];
+  }
+};
+
+export const getAllBorders = async (borders): Promise<any> => {
+  try {
+    const borderCountry = await prisma.country.findMany({
+      where: {
+        cioc: {
+          in: borders,
+        },
+      },
+    });
+    return borderCountry;
   } catch (error) {
     console.log("get countries", error);
     return [];

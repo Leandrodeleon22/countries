@@ -18,12 +18,12 @@ const Countries = async ({
   return (
     <div className="flex justify-between sm:justify-center flex-wrap gap-12">
       {countries.map((country: any) => {
-        const { id, name, population, region, flags } = country;
+        const { id, name, population, region, flags, capital } = country;
         // const capitalName = capital[0] ? capital[0] : "No Capital";
-        const capital =
-          country.capital && country.capital[0]
-            ? country.capital[0]
-            : "No Capital";
+        // const capital =
+        //   country.capital && country.capital[0]
+        //     ? country.capital[0]
+        //     : "No Capital";
 
         const flagSrc = flags.png.substring("https://flagcdn.com/w320/".length);
 
@@ -34,6 +34,7 @@ const Countries = async ({
         return (
           <SingleCountry
             key={id}
+            id={id}
             region={region}
             population={formatPopulation(population)}
             countryName={name}

@@ -10,6 +10,7 @@ interface SingleCountryProps {
   region: string;
   capital: string;
   flagImage: string;
+  id: number;
 }
 const SingleCountry: React.FC<SingleCountryProps> = ({
   countryName,
@@ -17,13 +18,15 @@ const SingleCountry: React.FC<SingleCountryProps> = ({
   region,
   capital,
   flagImage,
+  id,
 }) => {
   const imageLoader = ({ src }: any) => {
     return `https://flagcdn.com/w320/${src}`;
   };
   return (
     <Link
-      href={`/${countryName.toLowerCase()}`}
+      // href={`/${countryName.toLowerCase()}`}
+      href={`/${id}`}
       className="w-[300px] hover:scale-105 transition ease-in-out  h-full drop-shadow-lg dark:bg-slate-700 bg-white b rounded-md overflow-hidden"
     >
       <div>

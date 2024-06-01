@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface CountryProps {
+  id: number;
   countryName: string;
   population: string;
   region: string;
@@ -15,7 +16,7 @@ interface CountryProps {
   currencies: string;
   languages: any;
   nativeName: string;
-  borders: string[];
+  borders: any;
 }
 
 const Country: React.FC<CountryProps> = ({
@@ -138,12 +139,12 @@ const Country: React.FC<CountryProps> = ({
 
               {borders.map((border) => {
                 return (
-                  <div key={border} className="flex items-center">
+                  <div key={border.id} className="flex items-center">
                     <Link
                       className="text-slate-30 hover:scale-105 transition ease-in-out bg-slate-50 dark:bg-slate-700 mr-2 px-2 py-1 rounded-sm shadow-md"
-                      href={`/${border}`}
+                      href={`/${border.id}`}
                     >
-                      {border}
+                      {border.name}
                     </Link>
                   </div>
                 );
