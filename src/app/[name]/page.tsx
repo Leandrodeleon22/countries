@@ -38,6 +38,13 @@ const page = async ({ params }: { params: { name: string } }) => {
   //     return borderCountry.name;
   //   });
 
+  // console.log(languages);
+  const allLanguages = languages
+    .map((objLang: any) => {
+      return objLang.name;
+    })
+    .join(", ");
+
   const borderss = await getAllBorders(borders);
 
   const flagSrc = flags.png.substring("https://flagcdn.com/w320/".length);
@@ -61,7 +68,7 @@ const page = async ({ params }: { params: { name: string } }) => {
         subRegion={subregion}
         topLevelDomain={tld}
         currencies={currency}
-        languages={languages[0].name}
+        languages={allLanguages}
         nativeName={nativeName}
         borders={borderss}
       />
