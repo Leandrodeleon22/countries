@@ -51,8 +51,8 @@ const Country: React.FC<CountryProps> = ({
   ];
 
   return (
-    <div className="flex justify-between  w-full ">
-      <div className="w-[35rem] h-[20rem] relative mr-8">
+    <div className=" min-h-screen flex justify-between lg:justify-start w-full lg:flex-col lg:items-center">
+      <div className="w-[35rem] h-[20rem] relative mr-8 sm:w-full  bg-red-500  lg:mx-auto lg:mb-12">
         <Image
           loader={imageLoader}
           src={flagImage}
@@ -64,13 +64,13 @@ const Country: React.FC<CountryProps> = ({
           alt={countryName}
         />
       </div>
-      <section className=" w-1/2 flex items-center">
-        <div className=" w-full">
+      <section className=" w-1/2 flex lg:w-full">
+        <div className="w-full">
           <h1 className="text-[1.5rem] mb-[2rem] font-semibold">
             {nativeName}
           </h1>
-          <div className="flex">
-            <div className="mr-44">
+          <div className="flex lg:justify-center">
+            <div className="mr-44 lg:mr-20">
               {sectionOne.map((el: any) => {
                 return (
                   <p key={el.id}>
@@ -133,13 +133,13 @@ const Country: React.FC<CountryProps> = ({
               </p> */}
             </div>
           </div>
-          <div className="mt-8">
-            <div className="flex">
+          <div className="mt-8 ">
+            <div className="flex flex-wrap items-center w-full ">
               <span className="mr-4">Border Countries: </span>
 
               {borders.map((border: any) => {
                 return (
-                  <div key={border.id} className="flex items-center">
+                  <div key={border.id} className="flex items-center  ">
                     <Link
                       className="text-slate-30 hover:scale-105 transition ease-in-out bg-slate-50 dark:bg-slate-700 mr-2 px-2 py-1 rounded-sm shadow-md"
                       href={`/${border.id}`}

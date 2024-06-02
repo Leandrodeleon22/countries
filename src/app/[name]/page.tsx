@@ -49,10 +49,10 @@ const page = async ({ params }: { params: { name: string } }) => {
 
   const flagSrc = flags.png.substring("https://flagcdn.com/w320/".length);
   return (
-    <div className="h-screen w-full px-16">
+    <div className=" w-full px-16 lg:px-7">
       <Link
         href="/"
-        className=" hover:scale-105 transition ease-in-out flex my-20 px-7 py-2 items-center justify-center shadow-md bg-slate-50 dark:bg-slate-700 rounded-sm w-[9rem]"
+        className=" hover:scale-105 transition ease-in-out flex my-20 lg:my-7 px-7 py-2 items-center justify-center shadow-md bg-slate-50 dark:bg-slate-700 rounded-sm w-[9rem]"
       >
         <FaArrowLeftLong />
         <span className="ml-3">Back</span>
