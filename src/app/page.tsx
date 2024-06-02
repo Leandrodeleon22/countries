@@ -11,8 +11,6 @@ export default async function Home({
     region: string;
   };
 }) {
-  // const countries = await getAllCountries();
-
   const query = searchParams?.query || "";
   const region = searchParams?.region || "";
   return (

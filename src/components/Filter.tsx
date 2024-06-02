@@ -8,13 +8,10 @@ import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 const Filter = () => {
-  //   const [bookmarksChecked, setBookmarksChecked] = useState(true);
-  //   const [urlsChecked, setUrlsChecked] = useState(false);
   const [region, setRegion] = useState("");
   const searchParams = useSearchParams();
   const { replace, push } = useRouter();
   const pathname = usePathname();
-  // console.log(params);
 
   const handleSubmit = (filter: string) => {
     let params = new URLSearchParams(searchParams);
