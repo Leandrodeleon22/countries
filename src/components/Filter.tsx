@@ -4,7 +4,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import DropdownDownMenuName from "@/utils/links";
 
 import { useState } from "react";
-import Link from "next/link";
+
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 const Filter = () => {

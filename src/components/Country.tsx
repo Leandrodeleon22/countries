@@ -137,7 +137,7 @@ const Country: React.FC<CountryProps> = ({
             <div className="flex">
               <span className="mr-4">Border Countries: </span>
 
-              {borders.map((border) => {
+              {borders.map((border: any) => {
                 return (
                   <div key={border.id} className="flex items-center">
                     <Link

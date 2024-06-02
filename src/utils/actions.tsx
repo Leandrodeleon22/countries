@@ -144,7 +144,7 @@ export const getSingleCountry = async (id: string): Promise<any> => {
   }
 };
 
-export const getAllBorders = async (borders): Promise<any> => {
+export const getAllBorders = async (borders: any): Promise<any> => {
   try {
     const borderCountry = await prisma.country.findMany({
       where: {
