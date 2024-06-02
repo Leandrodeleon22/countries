@@ -7,7 +7,7 @@ const SearchInput = () => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace, push } = useRouter();
-  // console.log(pathname);
+
   const handleSearch = useDebouncedCallback((term: string) => {
     let params = new URLSearchParams(searchParams);
 

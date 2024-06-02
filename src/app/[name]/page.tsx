@@ -28,16 +28,17 @@ const page = async ({ params }: { params: { name: string } }) => {
   const currency = currencies[0].name;
 
   const language = Object.values(languages)[0];
-  const borderCountries = allCountries
-    .filter((countryInfo: any) => {
-      return borders?.includes(countryInfo.cioc);
-    })
-    .map((borderCountry: any) => {
-      return borderCountry.name;
-    });
+
+  // console.log(languages[0].name);
+  // const borderCountries = allCountries
+  //   .filter((countryInfo: any) => {
+  //     return borders?.includes(countryInfo.cioc);
+  //   })
+  //   .map((borderCountry: any) => {
+  //     return borderCountry.name;
+  //   });
 
   const borderss = await getAllBorders(borders);
-  console.log(borderss);
 
   const flagSrc = flags.png.substring("https://flagcdn.com/w320/".length);
   return (
@@ -60,7 +61,7 @@ const page = async ({ params }: { params: { name: string } }) => {
         subRegion={subregion}
         topLevelDomain={tld}
         currencies={currency}
-        languages={language.name}
+        languages={languages[0].name}
         nativeName={nativeName}
         borders={borderss}
       />
